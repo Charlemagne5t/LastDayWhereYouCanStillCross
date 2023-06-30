@@ -52,4 +52,25 @@ public class SolutionTest {
         int actual = new Solution().latestDayToCross(row, col, cells);
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void hasPathFromAnyColumnTestFalse() {
+        int[][] grid = {
+                {1, 1},
+                {0, 0}
+        };
+        boolean[][] visited = new boolean[2][2];
+        Assert.assertFalse(new Solution().hasPathFromAnyColumn(grid, visited));
+    }
+
+    @Test
+    public void hasPathFromAnyColumnTestTrue(){
+        int[][] grid = {
+                {1, 0, 1},
+                {1, 0, 1},
+                {1, 0, 1}
+        };
+        boolean[][] visited = new boolean[3][3];
+        Assert.assertTrue(new Solution().hasPathFromAnyColumn(grid, visited));
+    }
 }
